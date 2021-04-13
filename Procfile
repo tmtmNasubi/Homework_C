@@ -1,2 +1,0 @@
-discordbot: python tomorrowclassbot.py
-
