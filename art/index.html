@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body style = "margin: 0px; overflow: hidden;">
+	<!-- A-Frameライブラリ-->
+	<script src = "aframe.min.js"></script>
+	<!-- AR.jsライブラリ-->
+	<script src = "https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+
+	<!-- A-FrameとAR.jsを紐づける-->
+	<a-scene embedded arjs = "debugUIEnbled:false;">
+
+		<!-- OBJ形式のCGモデル読み込み-->
+		<a-assets>
+			<a-asset-item id = "obj" src = "untitled.obj"></a-asset-item>
+			<a-asset-item id = "mtl" src = "untitled.mtl"></a-asset-item>
+		</a-assets>
+		<!-- マーカーを登録-->
+		<a-marker preset = "pattern-yukidaruma_boy">
+			<a-obj-model
+				src = "#obj"
+				mtl = "#mtl"
+				scale = "0.005 0.005 0.005"
+				position = "0 0.5 0">
+				<a-animation
+				attribute="rotation"
+				to="0 360 0"
+				dur="3000"
+				easing="linear"
+				repeat="indefinite">
+			</a-animation>
+			</a-obj-model>
+		</a-marker>
+
+		<!--カメラを置く-->
+		<a-entity camera></a-entity>
+	</a-scene>
+
+</body>
+</html>
