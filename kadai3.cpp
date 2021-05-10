@@ -95,17 +95,18 @@ int med_height(PhysCheck dat[], int n) {
 	int med, num;
 	num = 0;
 	med = dat[0].height;
+	int y[];
 
 	for (int i = 0; i < n; i++) {
 		int j = i;
 		for (int k = i; k < n; k++) {
-			if (dat[k].height < dat[j].height) {
+			if (y[k] < y[j]) {
 				j = k;
 			}
 			if (i < j) {
-				int v = dat[i].height;
-				dat[i].height = dat[j].height;
-				dat[j].height = v;
+				int v = y[i];
+				y[i] = y[j];
+				y[j] = v;
 			}
 		}
 		if ((n % 2) == 0) {
@@ -115,7 +116,7 @@ int med_height(PhysCheck dat[], int n) {
 			num = (n / 2);
 		}
 	}
-	return num;
+	return y[num];
 
 
 }
@@ -191,6 +192,8 @@ int main(void)
 
 	printf("%d–¼‚ÌŒŸ¸ŽÒ‚Ì‚¤‚¿g’·‚ª%d”Ô–Ú‚É‚‚¢‚Ì‚Í %s ‚³‚ñ‚Ì %d cm‚Å‚·D", nx, (med_height(x, nx) + 1), x[med_height(x, nx)].name, x[med_height(x, nx)].height);
 
+	
+	
 	free(y); 
 
 	return 0;
